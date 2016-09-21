@@ -1,8 +1,9 @@
 
 1. change the database name to your github username
-* change the form to log first name, last name, and email address
-* log a timestamp when users sign up
-* require that fields are not empty
+2. change the form to log first name, last name, and email address
+3. log a timestamp when users sign up
+4. require that fields are not empty
+
 * check for valid email addresses
 * display the total number of user signups at the top of /userlist
 * display a thank you message after completing the sign up form instead of redirecting to /userlist (hint, use AJAX) 

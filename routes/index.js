@@ -27,6 +27,7 @@ router.post('/adduser', (req, res) => {
   const firstName = req.body.firstname;
   const lastName = req.body.lastname;
   const userEmail = req.body.useremail;
+  const created_At = new Date();
 
   // Set our collection
   const collection = db.get('usercollection');
@@ -36,6 +37,7 @@ router.post('/adduser', (req, res) => {
     firstname: firstName,
     lastname: lastName,
     email: userEmail,
+    created_at: created_At
   }, (err) => {
     if (err) {
       // If it failed, return error
