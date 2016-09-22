@@ -17,6 +17,7 @@ router.get('/userlist', (req, res) => {
   collection.find({}, {}, (e, docs) => {
     res.render('userlist', {
       userlist: docs,
+      userlistLength: docs.length
     });
   });
 });

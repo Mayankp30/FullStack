@@ -4,8 +4,9 @@
 3. log a timestamp when users sign up
 4. require that fields are not empty
 
-* check for valid email addresses
-* display the total number of user signups at the top of /userlist
+5. check for valid email addresses
+6. display the total number of user signups at the top of /userlist
+
 * display a thank you message after completing the sign up form instead of redirecting to /userlist (hint, use AJAX) 
 * disallow duplicate email addresses in the database
 * display an “error, a signup with this email address already exists” message for duplicate email addresses
