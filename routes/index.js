@@ -7,7 +7,7 @@ const db = monk('localhost:27017/mayankp30');
 /* GET home page. */
 router.get('/', (req, res) => {
   res.render('index', {
-    title: 'Add New User',
+    title: 'Add New User'
   });
 });
 
@@ -34,19 +34,28 @@ router.post('/adduser', (req, res) => {
   const collection = db.get('usercollection');
 
   // Submit to the DB
-  collection.insert({
-    firstname: firstName,
-    lastname: lastName,
-    email: userEmail,
-    created_at: created_At
-  }, (err) => {
-    if (err) {
-      // If it failed, return error
-      res.send('There was a problem adding the information to the database.');
+  collection.find({email: userEmail}, function (req, res) {
+    if(res.length < 1){
+      collection.insert({
+        firstname: firstName,
+        lastname: lastName,
+        email: userEmail,
+        created_at: created_At
+      }, function (err, docs) {
+        if(err) {
+          res.send('There was a problem adding the information to the database.');
+        } else {
+          // console.log("NO error",docs);
+          // res.status(200).json({status:"ok"})
+          res.redirect('/userlist')
+        }
+      });
     } else {
-      res.redirect('userlist');
+      console.log("Email already exist");
+      // res.json(req.body);
     }
-  });
+  })
 });
+
 
 export default router;
