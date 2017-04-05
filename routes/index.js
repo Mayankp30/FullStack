@@ -57,5 +57,4 @@ router.post('/adduser', (req, res) => {
   })
 });
 
-
 export default router;
